@@ -12,6 +12,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var myImg: UIImageView!
     
+    @IBOutlet weak var foundLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -39,6 +41,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
+    @IBAction func checkPicture(_ sender: Any) {
+        foundLabel.text = "found!"
+    }
+    
 }
 
