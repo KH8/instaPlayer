@@ -43,7 +43,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func checkPicture(_ sender: Any) {
-        foundLabel.text = "found!"
+        let url = URL(string: "http://www.stackoverflow.com")
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            DispatchQueue.main.async {
+                self.foundLabel.text = String(describing: data)
+            }
+        }
+        task.resume()
     }
     
 }
