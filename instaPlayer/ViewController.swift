@@ -46,9 +46,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imageData:Data =  UIImageJPEGRepresentation(myImg.image!, CGFloat(AppConstants.imageCompression))!
         let base64String = imageData.base64EncodedString()
         
-        print(UIImagePNGRepresentation(myImg.image!)!.base64EncodedString().lengthOfBytes(using: String.Encoding.utf8))
-        print(base64String.lengthOfBytes(using: String.Encoding.utf8))
-        
         let body = "{\"requests\":[{\"image\":{\"content\":\"" + base64String + "\"},\"features\":[{\"type\":\"WEB_DETECTION\",\"maxResults\":1}]}]}"
         
         var request = URLRequest(url: url!)
