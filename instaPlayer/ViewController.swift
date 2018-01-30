@@ -12,7 +12,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var myImg: UIImageView!
     
-    @IBOutlet weak var foundLabel: UILabel!
+    @IBOutlet weak var foundResponse: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +43,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func checkPicture(_ sender: Any) {
-        let url = URL(string: "http://www.stackoverflow.com")
-        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+        let url = URL(string: "https://vision.googleapis.com/v1/images:annotate?key=" + AppConstants.googleApiKey)
+        
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
             DispatchQueue.main.async {
-                self.foundLabel.text = String(describing: data)
+                self.foundResponse.text = String(bytes: data!, encoding: String.Encoding.utf8)
             }
         }
         task.resume()

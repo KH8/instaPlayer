@@ -6,6 +6,16 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>api.stackexchange.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<string>YES</string>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>To make photos of record covers</string>

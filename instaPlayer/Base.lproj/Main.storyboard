@@ -41,29 +41,30 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bo1-46-CfQ">
-                                <rect key="frame" x="0.0" y="403" width="375" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-vD-FJS">
+                                <rect key="frame" x="0.0" y="403" width="375" height="220"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Bo1-46-CfQ" firstAttribute="top" secondItem="3K2-KO-ODA" secondAttribute="bottom" constant="8" symbolic="YES" id="3hc-4t-w7c"/>
-                            <constraint firstItem="3K2-KO-ODA" firstAttribute="leading" secondItem="Bo1-46-CfQ" secondAttribute="leading" id="NDG-A4-55Y"/>
+                            <constraint firstItem="nPT-vD-FJS" firstAttribute="leading" secondItem="Hdh-EL-flZ" secondAttribute="leading" id="46E-sk-If4"/>
                             <constraint firstItem="3K2-KO-ODA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ogg-fi-fy9"/>
+                            <constraint firstItem="nPT-vD-FJS" firstAttribute="bottom" secondItem="Hdh-EL-flZ" secondAttribute="top" id="QYv-sL-ogg"/>
                             <constraint firstItem="3K2-KO-ODA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cTS-Jj-M8q"/>
                             <constraint firstItem="3K2-KO-ODA" firstAttribute="leading" secondItem="Hdh-EL-flZ" secondAttribute="leading" id="jGQ-E6-8KD"/>
                             <constraint firstItem="Hdh-EL-flZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ozs-0L-CFm"/>
+                            <constraint firstItem="nPT-vD-FJS" firstAttribute="top" secondItem="3K2-KO-ODA" secondAttribute="bottom" constant="8" symbolic="YES" id="rBx-TZ-eca"/>
+                            <constraint firstItem="nPT-vD-FJS" firstAttribute="trailing" secondItem="Hdh-EL-flZ" secondAttribute="trailing" id="ukb-q5-juv"/>
                             <constraint firstItem="3K2-KO-ODA" firstAttribute="trailing" secondItem="Hdh-EL-flZ" secondAttribute="trailing" id="vvC-U9-LWO"/>
                             <constraint firstAttribute="trailing" secondItem="3K2-KO-ODA" secondAttribute="trailing" id="wey-RV-kPj"/>
-                            <constraint firstItem="3K2-KO-ODA" firstAttribute="trailing" secondItem="Bo1-46-CfQ" secondAttribute="trailing" id="wzG-9T-PiX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="foundLabel" destination="Bo1-46-CfQ" id="4cd-BE-55b"/>
+                        <outlet property="foundResponse" destination="nPT-vD-FJS" id="5Cj-MG-iyO"/>
                         <outlet property="myImg" destination="3K2-KO-ODA" id="SpI-Ck-YD1"/>
                     </connections>
                 </viewController>
