@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A48368BD202117B900369A51 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48368BC202117B900369A51 /* AppConstants.swift */; };
 		A4A605EA2017C3E3000A3503 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A605E92017C3E3000A3503 /* AppDelegate.swift */; };
 		A4A605EC2017C3E3000A3503 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A605EB2017C3E3000A3503 /* ViewController.swift */; };
 		A4A605EF2017C3E3000A3503 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4A605ED2017C3E3000A3503 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A48368BC202117B900369A51 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		A4A605E62017C3E3000A3503 /* instaPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instaPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A605E92017C3E3000A3503 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4A605EB2017C3E3000A3503 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				A4A605F52017C3E3000A3503 /* LaunchScreen.storyboard */,
 				A4A605F82017C3E3000A3503 /* Info.plist */,
 				A4A605F02017C3E3000A3503 /* instaPlayer.xcdatamodeld */,
+				A48368BC202117B900369A51 /* AppConstants.swift */,
 			);
 			path = instaPlayer;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				A4A605F22017C3E3000A3503 /* instaPlayer.xcdatamodeld in Sources */,
 				A4A605EC2017C3E3000A3503 /* ViewController.swift in Sources */,
 				A4A605EA2017C3E3000A3503 /* AppDelegate.swift in Sources */,
+				A48368BD202117B900369A51 /* AppConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
