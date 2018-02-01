@@ -63,7 +63,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             DispatchQueue.main.async {
                 let decoder = JSONDecoder()
                 let response = try! decoder.decode(VisionAPIResponse.self, from: data!)
-                self.foundResponse.text = response.responses[0].webDetection.bestGuessLabels[0].label;
+                var guess = response.responses[0].webDetection.bestGuessLabels[0].label;
+                self.foundResponse.text = guess
+                
+                guess = guess.trimmingCharacters(in: CharacterSet.punctuationCharacters)
+                guess = guess.replacingOccurrences(of: " cd ", with: " ")
+                guess = guess.replacingOccurrences(of: " vinyl ", with: " ")
+
+                let encodedCriterias = guess.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+                let url = URL(string: AppConstants.iTunesApiURL + encodedCriterias!)
+                
+                var request = URLRequest(url: url!)
+                request.httpMethod = "GET"
+                request.addValue("application/json", forHTTPHeaderField: "Accept")
+                let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+                    DispatchQueue.main.async {
+                        let decoder = JSONDecoder()
+                        let response = try! decoder.decode(ITunesAPIResponse.self, from: data!)
+                        
+                        if response.results.count <= 0 {
+                            self.foundResponse.text = "No results found for: " + guess + " - " + encodedCriterias!;
+                            return;
+                        }
+                        
+                        let result = response.results[0];
+                        self.foundResponse.text = result.artistName + " - " + result.trackName + " [" + result.collectionName + "]"
+                        
+                        let url = URL(string: result.previewUrl)!;
+                        let playerItem = AVPlayerItem.init(url: url)
+                        self.playerQueue.removeAllItems()
+                        self.playerQueue.insert(playerItem, after: nil)
+                        self.playerQueue.play()
+                    }
+                }
+                task.resume()
             }
         }
         task.resume()
@@ -98,6 +131,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     struct VisionResponseBestGuessLabel: Codable {
         var label: String
+    }
+    
+    struct ITunesAPIResponse: Codable {
+        var results: [ITunesResponseResults]
+    }
+    
+    struct ITunesResponseResults: Codable {
+        var artistName: String
+        var collectionName: String
+        var trackName: String
+        var previewUrl: String
     }
     
 }
