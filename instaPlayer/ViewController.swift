@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -43,8 +44,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func checkPicture(_ sender: Any) {
         let url = URL(string: "https://vision.googleapis.com/v1/images:annotate?key=" + AppConstants.googleApiKey)
         
-        let imageData:Data =  UIImageJPEGRepresentation(myImg.image!, CGFloat(AppConstants.imageCompression))!
-        let base64String = imageData.base64EncodedString()
+//        let imageData:Data =  UIImageJPEGRepresentation(myImg.image!, CGFloat(AppConstants.imageCompression))!
+//        let base64String = imageData.base64EncodedString()
+       
+        let base64String = AppConstants.testImage;
         
         let body = "{\"requests\":[{\"image\":{\"content\":\"" + base64String + "\"},\"features\":[{\"type\":\"WEB_DETECTION\",\"maxResults\":1}]}]}"
         
@@ -61,6 +64,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         task.resume()
     }
+    
+    @IBAction func playSound(_ sender: Any) {
+        let url = URL(string: AppConstants.testSongURL)!;
+        let playerItem = AVPlayerItem.init(url: url)
+        self.playerQueue.insert(playerItem, after: nil)
+        self.playerQueue.play()
+    }
+    
+    @IBAction func stopSound(_ sender: Any) {
+        self.playerQueue.pause()
+    }
+    
+    var playerQueue : AVQueuePlayer = {
+        return AVQueuePlayer()
+    }()
     
 }
 

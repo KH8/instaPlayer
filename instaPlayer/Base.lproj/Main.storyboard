@@ -27,6 +27,18 @@
                                             <action selector="takePhoto:" destination="BYZ-38-t0r" id="BOs-Uf-8eO"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="TWI-kW-ZAN"/>
+                                    <barButtonItem systemItem="play" id="dfb-et-Zeq">
+                                        <connections>
+                                            <action selector="playSound:" destination="BYZ-38-t0r" id="QBw-mY-rb4"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="TAl-ut-1T2"/>
+                                    <barButtonItem systemItem="pause" id="O7y-eJ-H4s">
+                                        <connections>
+                                            <action selector="stopSound:" destination="BYZ-38-t0r" id="MrI-B1-3Ps"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="6Go-fw-t8K"/>
                                     <barButtonItem systemItem="search" id="bcy-Ze-hk6">
                                         <connections>
@@ -34,19 +46,16 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-vD-FJS">
                                 <rect key="frame" x="0.0" y="552" width="375" height="71"/>
-                                <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdd-ww-jst">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3K2-KO-ODA">
                                 <rect key="frame" x="0.0" y="44" width="375" height="500"/>
@@ -58,7 +67,6 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nPT-vD-FJS" firstAttribute="leading" secondItem="Hdh-EL-flZ" secondAttribute="leading" id="46E-sk-If4"/>
                             <constraint firstItem="3K2-KO-ODA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="Gyy-oK-VSV"/>

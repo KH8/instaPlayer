@@ -16,6 +16,7 @@
 		A4A605F72017C3E3000A3503 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4A605F52017C3E3000A3503 /* LaunchScreen.storyboard */; };
 		A4A606022017C3E3000A3503 /* instaPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A606012017C3E3000A3503 /* instaPlayerTests.swift */; };
 		A4A6060D2017C3E3000A3503 /* instaPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A6060C2017C3E3000A3503 /* instaPlayerUITests.swift */; };
+		A4F43AE32023716F00A514B7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F43AE22023716F00A514B7 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		A4A606082017C3E3000A3503 /* instaPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instaPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A6060C2017C3E3000A3503 /* instaPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instaPlayerUITests.swift; sourceTree = "<group>"; };
 		A4A6060E2017C3E3000A3503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4F43AE22023716F00A514B7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F43AE32023716F00A514B7 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +88,7 @@
 				A4A606002017C3E3000A3503 /* instaPlayerTests */,
 				A4A6060B2017C3E3000A3503 /* instaPlayerUITests */,
 				A4A605E72017C3E3000A3503 /* Products */,
+				A4F43AE12023716E00A514B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +133,14 @@
 				A4A6060E2017C3E3000A3503 /* Info.plist */,
 			);
 			path = instaPlayerUITests;
+			sourceTree = "<group>";
+		};
+		A4F43AE12023716E00A514B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4F43AE22023716F00A514B7 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
