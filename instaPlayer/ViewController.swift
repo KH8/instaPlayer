@@ -64,11 +64,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let decoder = JSONDecoder()
                 let response = try! decoder.decode(VisionAPIResponse.self, from: data!)
                 var guess = response.responses[0].webDetection.bestGuessLabels[0].label;
-                self.foundResponse.text = guess
+                print(guess)
                 
-                guess = guess.trimmingCharacters(in: CharacterSet.punctuationCharacters)
-                guess = guess.replacingOccurrences(of: " cd ", with: " ")
-                guess = guess.replacingOccurrences(of: " vinyl ", with: " ")
+                guess = guess.components(separatedBy: CharacterSet.punctuationCharacters).joined()
+                    .replacingOccurrences(of: "cd", with: "")
+                    .replacingOccurrences(of: "vinyl", with: "")
+                    .replacingOccurrences(of: "poster", with: "")
+                print(guess)
 
                 let encodedCriterias = guess.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
                 let url = URL(string: AppConstants.iTunesApiURL + encodedCriterias!)
@@ -93,7 +95,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         let playerItem = AVPlayerItem.init(url: url)
                         self.playerQueue.removeAllItems()
                         self.playerQueue.insert(playerItem, after: nil)
-                        self.playerQueue.play()
+                        //self.playerQueue.play()
                     }
                 }
                 task.resume()
