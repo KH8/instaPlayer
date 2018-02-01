@@ -42,12 +42,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func checkPicture(_ sender: Any) {
-        let url = URL(string: "https://vision.googleapis.com/v1/images:annotate?key=" + AppConstants.googleApiKey)
+        self.foundResponse.text = "searching..."
         
-//        let imageData:Data =  UIImageJPEGRepresentation(myImg.image!, CGFloat(AppConstants.imageCompression))!
-//        let base64String = imageData.base64EncodedString()
+        let url = URL(string: AppConstants.googleApiURL + AppConstants.googleApiKey)
+        
+        let imageData:Data =  UIImageJPEGRepresentation(myImg.image!, CGFloat(AppConstants.imageCompression))!
+        let base64String = imageData.base64EncodedString()
        
-        let base64String = AppConstants.testImage;
+//        let base64String = AppConstants.testImage;
         
         let body = "{\"requests\":[{\"image\":{\"content\":\"" + base64String + "\"},\"features\":[{\"type\":\"WEB_DETECTION\",\"maxResults\":1}]}]}"
         
@@ -59,7 +61,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
             DispatchQueue.main.async {
-                self.foundResponse.text = String(bytes: data!, encoding: String.Encoding.utf8)
+                let decoder = JSONDecoder()
+                let response = try! decoder.decode(VisionAPIResponse.self, from: data!)
+                self.foundResponse.text = response.responses[0].webDetection.bestGuessLabels[0].label;
             }
         }
         task.resume()
@@ -79,6 +83,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var playerQueue : AVQueuePlayer = {
         return AVQueuePlayer()
     }()
+    
+    struct VisionAPIResponse: Codable {
+        var responses: [VisionResponse]
+    }
+    
+    struct VisionResponse: Codable {
+        var webDetection: VisionResponseWebDetection
+    }
+    
+    struct VisionResponseWebDetection: Codable {
+        var bestGuessLabels: [VisionResponseBestGuessLabel]
+    }
+    
+    struct VisionResponseBestGuessLabel: Codable {
+        var label: String
+    }
     
 }
 
