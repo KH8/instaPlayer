@@ -16,6 +16,10 @@
 		A4A605F72017C3E3000A3503 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4A605F52017C3E3000A3503 /* LaunchScreen.storyboard */; };
 		A4A606022017C3E3000A3503 /* instaPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A606012017C3E3000A3503 /* instaPlayerTests.swift */; };
 		A4A6060D2017C3E3000A3503 /* instaPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A6060C2017C3E3000A3503 /* instaPlayerUITests.swift */; };
+		A4DB5BAD202520DC00BCA0D3 /* GoogleVisionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB5BAC202520DC00BCA0D3 /* GoogleVisionClient.swift */; };
+		A4DB5BAF2025212C00BCA0D3 /* GoogleVisionClientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB5BAE2025212C00BCA0D3 /* GoogleVisionClientResponse.swift */; };
+		A4DB5BB1202521B100BCA0D3 /* GoogleVisionClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB5BB0202521B100BCA0D3 /* GoogleVisionClientConstants.swift */; };
+		A4DB5BB32025220300BCA0D3 /* GoogleVisionClientSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB5BB22025220300BCA0D3 /* GoogleVisionClientSecurity.swift */; };
 		A4F43AE32023716F00A514B7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F43AE22023716F00A514B7 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +56,10 @@
 		A4A606082017C3E3000A3503 /* instaPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instaPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A6060C2017C3E3000A3503 /* instaPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instaPlayerUITests.swift; sourceTree = "<group>"; };
 		A4A6060E2017C3E3000A3503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4DB5BAC202520DC00BCA0D3 /* GoogleVisionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionClient.swift; sourceTree = "<group>"; };
+		A4DB5BAE2025212C00BCA0D3 /* GoogleVisionClientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionClientResponse.swift; sourceTree = "<group>"; };
+		A4DB5BB0202521B100BCA0D3 /* GoogleVisionClientConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionClientConstants.swift; sourceTree = "<group>"; };
+		A4DB5BB22025220300BCA0D3 /* GoogleVisionClientSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionClientSecurity.swift; sourceTree = "<group>"; };
 		A4F43AE22023716F00A514B7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -105,6 +113,7 @@
 		A4A605E82017C3E3000A3503 /* instaPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				A4DB5BAB202520B800BCA0D3 /* googleVisionClient */,
 				A4A605E92017C3E3000A3503 /* AppDelegate.swift */,
 				A4A605EB2017C3E3000A3503 /* ViewController.swift */,
 				A4A605ED2017C3E3000A3503 /* Main.storyboard */,
@@ -133,6 +142,17 @@
 				A4A6060E2017C3E3000A3503 /* Info.plist */,
 			);
 			path = instaPlayerUITests;
+			sourceTree = "<group>";
+		};
+		A4DB5BAB202520B800BCA0D3 /* googleVisionClient */ = {
+			isa = PBXGroup;
+			children = (
+				A4DB5BAC202520DC00BCA0D3 /* GoogleVisionClient.swift */,
+				A4DB5BAE2025212C00BCA0D3 /* GoogleVisionClientResponse.swift */,
+				A4DB5BB0202521B100BCA0D3 /* GoogleVisionClientConstants.swift */,
+				A4DB5BB22025220300BCA0D3 /* GoogleVisionClientSecurity.swift */,
+			);
+			path = googleVisionClient;
 			sourceTree = "<group>";
 		};
 		A4F43AE12023716E00A514B7 /* Frameworks */ = {
@@ -279,7 +299,11 @@
 			files = (
 				A4A605F22017C3E3000A3503 /* instaPlayer.xcdatamodeld in Sources */,
 				A4A605EC2017C3E3000A3503 /* ViewController.swift in Sources */,
+				A4DB5BAF2025212C00BCA0D3 /* GoogleVisionClientResponse.swift in Sources */,
+				A4DB5BAD202520DC00BCA0D3 /* GoogleVisionClient.swift in Sources */,
 				A4A605EA2017C3E3000A3503 /* AppDelegate.swift in Sources */,
+				A4DB5BB1202521B100BCA0D3 /* GoogleVisionClientConstants.swift in Sources */,
+				A4DB5BB32025220300BCA0D3 /* GoogleVisionClientSecurity.swift in Sources */,
 				A48368BD202117B900369A51 /* AppConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
