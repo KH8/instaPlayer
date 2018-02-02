@@ -11,9 +11,13 @@ import AVFoundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var imageCache: UIImageView!
+    
     @IBOutlet weak var myImg: UIImageView!
     
     @IBOutlet weak var foundResponse: UITextView!
+    
+    var response: ITunesAPIResponse!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,18 +39,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            myImg.contentMode = .scaleAspectFill
-            myImg.image = pickedImage
+            imageCache.contentMode = .scaleAspectFill
+            imageCache.image = pickedImage
+            checkPicture()
         }
         picker.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func checkPicture(_ sender: Any) {
+    func checkPicture() {
         self.foundResponse.text = "searching..."
         
         let url = URL(string: AppConstants.googleApiURL + AppConstants.googleApiKey)
         
-        let imageData:Data =  UIImageJPEGRepresentation(myImg.image!, CGFloat(AppConstants.imageCompression))!
+        let imageData:Data =  UIImageJPEGRepresentation(imageCache.image!, CGFloat(AppConstants.imageCompression))!
         let base64String = imageData.base64EncodedString()
        
 //        let base64String = AppConstants.testImage;
@@ -66,8 +71,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 var guess = response.responses[0].webDetection.bestGuessLabels[0].label;
                 print(guess)
                 
-                guess = guess.components(separatedBy: CharacterSet.punctuationCharacters).joined()
+                guess = guess
+                    .components(separatedBy: CharacterSet.punctuationCharacters).joined()
+                    .components(separatedBy: CharacterSet.decimalDigits).joined()
                     .replacingOccurrences(of: "cd", with: "")
+                    .replacingOccurrences(of: "album", with: "")
+                    .replacingOccurrences(of: "record", with: "")
+                    .replacingOccurrences(of: "video", with: "")
+                    .replacingOccurrences(of: "vhs", with: "")
+                    .replacingOccurrences(of: "audio", with: "")
                     .replacingOccurrences(of: "vinyl", with: "")
                     .replacingOccurrences(of: "poster", with: "")
                 print(guess)
@@ -81,21 +93,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
                     DispatchQueue.main.async {
                         let decoder = JSONDecoder()
-                        let response = try! decoder.decode(ITunesAPIResponse.self, from: data!)
+                        self.response = try! decoder.decode(ITunesAPIResponse.self, from: data!)
                         
-                        if response.results.count <= 0 {
+                        if self.response.results.count <= 0 {
                             self.foundResponse.text = "No results found for: " + guess + " - " + encodedCriterias!;
                             return;
                         }
                         
-                        let result = response.results[0];
+                        let result = self.response.results[0];
                         self.foundResponse.text = result.artistName + " - " + result.trackName + " [" + result.collectionName + "]"
+                        
+                        let imageUrl = URL(string: result.artworkUrl100)
+                        let imageData = try? Data(contentsOf: imageUrl!)
+                        self.myImg.image = UIImage(data: imageData!)
                         
                         let url = URL(string: result.previewUrl)!;
                         let playerItem = AVPlayerItem.init(url: url)
                         self.playerQueue.removeAllItems()
                         self.playerQueue.insert(playerItem, after: nil)
-                        //self.playerQueue.play()
+                        self.playerQueue.play()
                     }
                 }
                 task.resume()
@@ -144,6 +160,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var collectionName: String
         var trackName: String
         var previewUrl: String
+        var artworkUrl100: String
     }
     
 }
