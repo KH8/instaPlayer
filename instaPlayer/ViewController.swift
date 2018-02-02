@@ -40,7 +40,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageCache.contentMode = .scaleAspectFill
-            imageCache.image = pickedImage
+            imageCache.image = crop(image: pickedImage, to: imageCache.intrinsicContentSize)
             checkPicture()
         }
         picker.dismiss(animated: true, completion: nil)
@@ -53,8 +53,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let imageData:Data =  UIImageJPEGRepresentation(imageCache.image!, CGFloat(AppConstants.imageCompression))!
         let base64String = imageData.base64EncodedString()
-       
-//        let base64String = AppConstants.testImage;
         
         let body = "{\"requests\":[{\"image\":{\"content\":\"" + base64String + "\"},\"features\":[{\"type\":\"WEB_DETECTION\",\"maxResults\":1}]}]}"
         
@@ -72,8 +70,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 print(guess)
                 
                 guess = guess
-                    .components(separatedBy: CharacterSet.punctuationCharacters).joined()
-                    .components(separatedBy: CharacterSet.decimalDigits).joined()
                     .replacingOccurrences(of: "cd", with: "")
                     .replacingOccurrences(of: "album", with: "")
                     .replacingOccurrences(of: "record", with: "")
@@ -82,6 +78,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     .replacingOccurrences(of: "audio", with: "")
                     .replacingOccurrences(of: "vinyl", with: "")
                     .replacingOccurrences(of: "poster", with: "")
+                    .components(separatedBy: CharacterSet.punctuationCharacters)
+                    .prefix(5)
+                    .joined()
                 print(guess)
 
                 let encodedCriterias = guess.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -161,6 +160,52 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var trackName: String
         var previewUrl: String
         var artworkUrl100: String
+    }
+    
+    func crop(image: UIImage, to:CGSize) -> UIImage {
+        guard let cgimage = image.cgImage else { return image }
+        
+        let contextImage: UIImage = UIImage(cgImage: cgimage)
+        
+        let contextSize: CGSize = contextImage.size
+    
+        var posX: CGFloat = 0.0
+        var posY: CGFloat = 0.0
+        let cropAspect: CGFloat = to.width / to.height
+        var cropWidth: CGFloat = to.width
+        var cropHeight: CGFloat = to.height
+        
+        if to.width > to.height { //Landscape
+            cropWidth = contextSize.width
+            cropHeight = contextSize.width / cropAspect
+            posY = (contextSize.height - cropHeight) / 2
+        } else if to.width < to.height { //Portrait
+            cropHeight = contextSize.height
+            cropWidth = contextSize.height * cropAspect
+            posX = (contextSize.width - cropWidth) / 2
+        } else { //Square
+            if contextSize.width >= contextSize.height { //Square on landscape (or square)
+                cropHeight = contextSize.height
+                cropWidth = contextSize.height * cropAspect
+                posX = (contextSize.width - cropWidth) / 2
+            }else{ //Square on portrait
+                cropWidth = contextSize.width
+                cropHeight = contextSize.width / cropAspect
+                posY = (contextSize.height - cropHeight) / 2
+            }
+        }
+        
+        let rect: CGRect = CGRect(x : posX, y : posY, width : cropWidth, height : cropHeight)
+        
+        // Create bitmap image from context using the rect
+        let imageRef: CGImage = contextImage.cgImage!.cropping(to: rect)!
+        
+        // Create a new image based on the imageRef and rotate back to the original orientation
+        let cropped: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+        
+        cropped.draw(in: CGRect(x : 0, y : 0, width : to.width, height : to.height))
+        
+        return cropped
     }
     
 }

@@ -20,21 +20,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KIE-zg-quM">
-                                <rect key="frame" x="0.0" y="64" width="375" height="515"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="455"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3K2-KO-ODA">
-                                <rect key="frame" x="0.0" y="479" width="100" height="100"/>
+                                <rect key="frame" x="0.0" y="519" width="60" height="60"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Vg1-6w-UT3"/>
-                                    <constraint firstAttribute="height" constant="100" id="vDm-2J-JGK"/>
+                                    <constraint firstAttribute="width" constant="60" id="Vg1-6w-UT3"/>
+                                    <constraint firstAttribute="height" constant="60" id="vDm-2J-JGK"/>
                                 </constraints>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhb-mq-ecI">
@@ -54,17 +53,17 @@
                                 </items>
                                 <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="..." translatesAutoresizingMaskIntoConstraints="NO" id="nPT-vD-FJS">
-                                <rect key="frame" x="100" y="479" width="275" height="100"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Take picture of the record you want to play" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-vD-FJS">
+                                <rect key="frame" x="60" y="519" width="315" height="59"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="ubL-dF-YvD"/>
+                                    <constraint firstAttribute="height" constant="59" id="ubL-dF-YvD"/>
                                 </constraints>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="En4-xm-eHA">
@@ -73,9 +72,7 @@
                                     <constraint firstAttribute="width" secondItem="En4-xm-eHA" secondAttribute="height" multiplier="375:44" id="UwQ-Lq-OBH"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem id="tvg-Ie-KsC">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="RWo-Ta-YAG"/>
-                                    </navigationItem>
+                                    <navigationItem id="tvg-Ie-KsC"/>
                                 </items>
                             </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUD-Kc-pCf">
@@ -100,13 +97,13 @@
                             <constraint firstItem="En4-xm-eHA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Fb2-s4-mqq"/>
                             <constraint firstItem="KIE-zg-quM" firstAttribute="top" secondItem="En4-xm-eHA" secondAttribute="bottom" id="Fv7-l7-QqR"/>
                             <constraint firstItem="En4-xm-eHA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GhR-xe-LgK"/>
-                            <constraint firstItem="Uhb-mq-ecI" firstAttribute="top" secondItem="nPT-vD-FJS" secondAttribute="bottom" id="J5T-eC-RJo"/>
+                            <constraint firstItem="Uhb-mq-ecI" firstAttribute="top" secondItem="nPT-vD-FJS" secondAttribute="bottom" constant="1" id="J5T-eC-RJo"/>
                             <constraint firstItem="nPT-vD-FJS" firstAttribute="leading" secondItem="3K2-KO-ODA" secondAttribute="trailing" id="JD9-Nq-Syz"/>
                             <constraint firstItem="nPT-vD-FJS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NmW-YY-ySd"/>
                             <constraint firstItem="uUD-Kc-pCf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WCw-VW-jLk"/>
                             <constraint firstItem="Uhb-mq-ecI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="X6b-uu-AIb"/>
                             <constraint firstItem="KIE-zg-quM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XaY-DM-mN5"/>
-                            <constraint firstItem="Uhb-mq-ecI" firstAttribute="top" secondItem="KIE-zg-quM" secondAttribute="bottom" id="Zla-ee-C3N"/>
+                            <constraint firstItem="3K2-KO-ODA" firstAttribute="top" secondItem="KIE-zg-quM" secondAttribute="bottom" id="Zla-ee-C3N"/>
                             <constraint firstItem="uUD-Kc-pCf" firstAttribute="top" secondItem="Uhb-mq-ecI" secondAttribute="bottom" id="iQn-Hj-Dgl"/>
                             <constraint firstItem="3K2-KO-ODA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nAT-AW-KSP"/>
                             <constraint firstItem="En4-xm-eHA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oYo-Jv-Uk3"/>
