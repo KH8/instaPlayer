@@ -51,8 +51,8 @@
 		A46603182026111F0066957E /* ITunesClientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesClientResponse.swift; sourceTree = "<group>"; };
 		A466031A2026113A0066957E /* ITunesClientConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesClientConstants.swift; sourceTree = "<group>"; };
 		A466031D202619160066957E /* ImageCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCrop.swift; sourceTree = "<group>"; };
-		A466032420261A570066957E /* CriteriaFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CriteriaFilter.swift; path = instaPlayer/utils/CriteriaFilter.swift; sourceTree = SOURCE_ROOT; };
-		A466032620261AD60066957E /* ResultContainter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultContainter.swift; path = instaPlayer/utils/ResultContainter.swift; sourceTree = SOURCE_ROOT; };
+		A466032420261A570066957E /* CriteriaFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CriteriaFilter.swift; path = instaPlayer/core/CriteriaFilter.swift; sourceTree = SOURCE_ROOT; };
+		A466032620261AD60066957E /* ResultContainter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultContainter.swift; path = instaPlayer/core/ResultContainter.swift; sourceTree = SOURCE_ROOT; };
 		A48368BC202117B900369A51 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		A4A605E62017C3E3000A3503 /* instaPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instaPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A605E92017C3E3000A3503 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4529FE720266E0F006A9A03 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				A466032420261A570066957E /* CriteriaFilter.swift */,
+				A466032620261AD60066957E /* ResultContainter.swift */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
 		A466031520260F730066957E /* iTunesClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,16 +126,6 @@
 				A466031D202619160066957E /* ImageCrop.swift */,
 			);
 			path = utils;
-			sourceTree = "<group>";
-		};
-		A466032320261A350066957E /* core */ = {
-			isa = PBXGroup;
-			children = (
-				A466032420261A570066957E /* CriteriaFilter.swift */,
-				A466032620261AD60066957E /* ResultContainter.swift */,
-			);
-			name = core;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		A4A605DD2017C3E2000A3503 = {
@@ -153,7 +152,7 @@
 		A4A605E82017C3E3000A3503 /* instaPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				A466032320261A350066957E /* core */,
+				A4529FE720266E0F006A9A03 /* core */,
 				A466031C202618EE0066957E /* utils */,
 				A466031520260F730066957E /* iTunesClient */,
 				A4DB5BAB202520B800BCA0D3 /* googleVisionClient */,
