@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A466031720260F8A0066957E /* ITunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466031620260F8A0066957E /* ITunesClient.swift */; };
+		A46603192026111F0066957E /* ITunesClientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46603182026111F0066957E /* ITunesClientResponse.swift */; };
+		A466031B2026113A0066957E /* ITunesClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466031A2026113A0066957E /* ITunesClientConstants.swift */; };
+		A466031E202619160066957E /* ImageCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466031D202619160066957E /* ImageCrop.swift */; };
 		A48368BD202117B900369A51 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48368BC202117B900369A51 /* AppConstants.swift */; };
 		A4A605EA2017C3E3000A3503 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A605E92017C3E3000A3503 /* AppDelegate.swift */; };
 		A4A605EC2017C3E3000A3503 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A605EB2017C3E3000A3503 /* ViewController.swift */; };
@@ -43,6 +46,9 @@
 
 /* Begin PBXFileReference section */
 		A466031620260F8A0066957E /* ITunesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesClient.swift; sourceTree = "<group>"; };
+		A46603182026111F0066957E /* ITunesClientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesClientResponse.swift; sourceTree = "<group>"; };
+		A466031A2026113A0066957E /* ITunesClientConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesClientConstants.swift; sourceTree = "<group>"; };
+		A466031D202619160066957E /* ImageCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCrop.swift; sourceTree = "<group>"; };
 		A48368BC202117B900369A51 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		A4A605E62017C3E3000A3503 /* instaPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instaPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A605E92017C3E3000A3503 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,8 +101,18 @@
 			isa = PBXGroup;
 			children = (
 				A466031620260F8A0066957E /* ITunesClient.swift */,
+				A46603182026111F0066957E /* ITunesClientResponse.swift */,
+				A466031A2026113A0066957E /* ITunesClientConstants.swift */,
 			);
 			path = iTunesClient;
+			sourceTree = "<group>";
+		};
+		A466031C202618EE0066957E /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				A466031D202619160066957E /* ImageCrop.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		A4A605DD2017C3E2000A3503 = {
@@ -123,6 +139,7 @@
 		A4A605E82017C3E3000A3503 /* instaPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				A466031C202618EE0066957E /* utils */,
 				A466031520260F730066957E /* iTunesClient */,
 				A4DB5BAB202520B800BCA0D3 /* googleVisionClient */,
 				A4A605E92017C3E3000A3503 /* AppDelegate.swift */,
@@ -310,11 +327,14 @@
 			files = (
 				A4A605F22017C3E3000A3503 /* instaPlayer.xcdatamodeld in Sources */,
 				A4A605EC2017C3E3000A3503 /* ViewController.swift in Sources */,
+				A466031B2026113A0066957E /* ITunesClientConstants.swift in Sources */,
 				A4DB5BAF2025212C00BCA0D3 /* GoogleVisionClientResponse.swift in Sources */,
 				A4DB5BAD202520DC00BCA0D3 /* GoogleVisionClient.swift in Sources */,
 				A4A605EA2017C3E3000A3503 /* AppDelegate.swift in Sources */,
+				A46603192026111F0066957E /* ITunesClientResponse.swift in Sources */,
 				A4DB5BB1202521B100BCA0D3 /* GoogleVisionClientConstants.swift in Sources */,
 				A4DB5BB32025220300BCA0D3 /* GoogleVisionClientSecurity.swift in Sources */,
+				A466031E202619160066957E /* ImageCrop.swift in Sources */,
 				A466031720260F8A0066957E /* ITunesClient.swift in Sources */,
 				A48368BD202117B900369A51 /* AppConstants.swift in Sources */,
 			);

@@ -30,11 +30,17 @@ class GoogleVisionClient {
             var apiResponse: GoogleVisionClientResponse? = nil
             var apiError: GoogleVisionClientResponseError? = nil
             
-            do {
-                let decoder = JSONDecoder()
-                apiResponse = try decoder.decode(GoogleVisionClientResponse.self, from: data!)
-            } catch {
-                apiError = GoogleVisionClientResponseError(message: "Could not retrieve response from Google Vision API.")
+            if (error != nil) {
+                apiError = GoogleVisionClientResponseError(
+                    message: "Google Vision API returned error: " + error.debugDescription)
+            } else {
+                do {
+                    let decoder = JSONDecoder()
+                    apiResponse = try decoder.decode(GoogleVisionClientResponse.self, from: data!)
+                } catch {
+                    apiError = GoogleVisionClientResponseError(
+                        message: "Could not retrieve response from Google Vision API.")
+                }
             }
             
             completionHandler(apiResponse, apiError)
