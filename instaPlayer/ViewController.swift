@@ -17,8 +17,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var messageDisplay: UITextView!
     
-    @IBOutlet weak var playButton: UIBarButtonItem!
-    
     var resultsContainer: ResultContainer!
     
     var googleVisionClient : GoogleVisionClient = GoogleVisionClient()
@@ -84,27 +82,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    @IBAction func playPause(_ sender: Any) {
-        if self.playerQueue.rate > 0 {
-            self.playerQueue.pause()
-            self.playButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.pause, target: self, action: #selector(ViewController.playPause(_:)))
-        } else {
-            self.playerQueue.play()
-            self.playButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.play, target: self, action: #selector(ViewController.playPause(_:)))
-        }
-    }
-    
     func isPlaying() -> Bool {
         return playerQueue.rate > 0
     }
     
     func play() {
-        playButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.play, target: self, action: #selector(ViewController.playPause(_:)))
         playerQueue.play()
     }
     
     func pause() {
-        playButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.pause, target: self, action: #selector(ViewController.playPause(_:)))
         playerQueue.pause()
     }
     
@@ -116,7 +102,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func backward(_ sender: Any) {
         if resultsContainer != nil {
-            initialize(track: resultsContainer.next()!)
+            initialize(track: resultsContainer.previous()!)
         }
     }
     
