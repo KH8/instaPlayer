@@ -30,7 +30,7 @@ class GoogleVisionClient {
             var apiResponse: GoogleVisionClientResponse? = nil
             var apiError: GoogleVisionClientResponseError? = nil
             
-            if (error != nil) {
+            if error != nil {
                 apiError = GoogleVisionClientResponseError(
                     message: "Google Vision API returned error: " + error.debugDescription)
             } else {

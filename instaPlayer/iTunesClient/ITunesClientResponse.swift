@@ -9,10 +9,10 @@
 import Foundation
 
 struct ITunesClientResponse: Codable {
-    var results: [ITunesClientResponseResults]
+    var results: [ITunesClientResponseResult]
 }
 
-struct ITunesClientResponseResults: Codable {
+struct ITunesClientResponseResult: Codable {
     var artistName: String
     var collectionName: String
     var trackName: String

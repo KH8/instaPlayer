@@ -22,7 +22,7 @@ class ITunesClient {
             var apiResponse: ITunesClientResponse? = nil
             var apiError: ITunesClientResponseError? = nil
             
-            if (error != nil) {
+            if error != nil {
                 apiError = ITunesClientResponseError(
                     message: "iTunes API returned error: " + error.debugDescription)
             } else {
