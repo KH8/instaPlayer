@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A466031720260F8A0066957E /* ITunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466031620260F8A0066957E /* ITunesClient.swift */; };
 		A48368BD202117B900369A51 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48368BC202117B900369A51 /* AppConstants.swift */; };
 		A4A605EA2017C3E3000A3503 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A605E92017C3E3000A3503 /* AppDelegate.swift */; };
 		A4A605EC2017C3E3000A3503 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A605EB2017C3E3000A3503 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A466031620260F8A0066957E /* ITunesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesClient.swift; sourceTree = "<group>"; };
 		A48368BC202117B900369A51 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		A4A605E62017C3E3000A3503 /* instaPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instaPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A605E92017C3E3000A3503 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A466031520260F730066957E /* iTunesClient */ = {
+			isa = PBXGroup;
+			children = (
+				A466031620260F8A0066957E /* ITunesClient.swift */,
+			);
+			path = iTunesClient;
+			sourceTree = "<group>";
+		};
 		A4A605DD2017C3E2000A3503 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 		A4A605E82017C3E3000A3503 /* instaPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				A466031520260F730066957E /* iTunesClient */,
 				A4DB5BAB202520B800BCA0D3 /* googleVisionClient */,
 				A4A605E92017C3E3000A3503 /* AppDelegate.swift */,
 				A4A605EB2017C3E3000A3503 /* ViewController.swift */,
@@ -304,6 +315,7 @@
 				A4A605EA2017C3E3000A3503 /* AppDelegate.swift in Sources */,
 				A4DB5BB1202521B100BCA0D3 /* GoogleVisionClientConstants.swift in Sources */,
 				A4DB5BB32025220300BCA0D3 /* GoogleVisionClientSecurity.swift in Sources */,
+				A466031720260F8A0066957E /* ITunesClient.swift in Sources */,
 				A48368BD202117B900369A51 /* AppConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

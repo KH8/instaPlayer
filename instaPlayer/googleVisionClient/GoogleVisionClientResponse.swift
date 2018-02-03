@@ -23,3 +23,7 @@ struct GoogleVisionClientResponseWebDetection: Codable {
 struct GoogleVisionClientResponseBestGuessLabel: Codable {
     var label: String
 }
+
+struct GoogleVisionClientResponseError: Codable {
+    var message: String
+}
