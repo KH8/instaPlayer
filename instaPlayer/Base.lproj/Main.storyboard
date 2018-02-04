@@ -57,6 +57,7 @@
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="lqW-Ej-jyH"/>
                                     <barButtonItem systemItem="camera" id="xkb-ig-ZDc">
+                                        <color key="tintColor" red="0.84313725490000002" green="0.062745098040000002" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="takePhoto:" destination="BYZ-38-t0r" id="0C0-XL-n8k"/>
                                         </connections>
@@ -71,7 +72,7 @@
                                 </items>
                                 <color key="tintColor" red="0.2627450980392157" green="0.36078431372549019" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Take picture of the record you want to play" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-vD-FJS" userLabel="Messages">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Take picture of the record you want to play" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-vD-FJS" userLabel="Messages">
                                 <rect key="frame" x="60" y="563" width="315" height="60"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -118,7 +119,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="2400" height="4000"/>
-        <image name="iconDark" width="2400" height="2400"/>
+        <image name="background" width="1200" height="2000"/>
+        <image name="iconDark" width="1200" height="1200"/>
     </resources>
 </document>
