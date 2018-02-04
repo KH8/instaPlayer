@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="KIE-zg-quM" userLabel="ImageTaken">
-                                <rect key="frame" x="0.0" y="44" width="375" height="519"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="498"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -36,13 +36,34 @@
                                     <constraint firstAttribute="height" constant="60" id="vDm-2J-JGK"/>
                                 </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="En4-xm-eHA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj3-C3-t6K" userLabel="TopBar">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="21"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="En4-xm-eHA" secondAttribute="height" multiplier="375:44" id="UwQ-Lq-OBH"/>
+                                    <constraint firstAttribute="width" secondItem="lj3-C3-t6K" secondAttribute="height" multiplier="125:7" id="IKq-Aq-ksX"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </navigationBar>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbz-s1-Wln" userLabel="TopToolbar">
+                                <rect key="frame" x="0.0" y="21" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Gbz-s1-Wln" secondAttribute="height" multiplier="375:44" id="xiL-hp-YiC"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="xkb-ig-ZDc">
+                                        <color key="tintColor" red="0.84313725490000002" green="0.062745098040000002" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="takePhoto:" destination="BYZ-38-t0r" id="0C0-XL-n8k"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Rxe-DT-LLm"/>
+                                </items>
+                                <color key="tintColor" red="0.84313725490000002" green="0.062745098040000002" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUD-Kc-pCf">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <constraints>
@@ -56,10 +77,9 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="lqW-Ej-jyH"/>
-                                    <barButtonItem systemItem="camera" id="xkb-ig-ZDc">
-                                        <color key="tintColor" red="0.84313725490000002" green="0.062745098040000002" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <barButtonItem style="plain" systemItem="play" id="cwV-It-k48">
                                         <connections>
-                                            <action selector="takePhoto:" destination="BYZ-38-t0r" id="0C0-XL-n8k"/>
+                                            <action selector="playPause:" destination="BYZ-38-t0r" id="Cyo-YY-c8Z"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="dvA-cP-fXR"/>
@@ -70,11 +90,10 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wbn-gJ-Ws4"/>
                                 </items>
-                                <color key="tintColor" red="0.2627450980392157" green="0.36078431372549019" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Take picture of the record you want to play" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-vD-FJS" userLabel="Messages">
                                 <rect key="frame" x="60" y="563" width="315" height="60"/>
-                                <color key="backgroundColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
@@ -90,19 +109,23 @@
                         <color key="tintColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="uUD-Kc-pCf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0QA-Ct-2AK"/>
-                            <constraint firstItem="En4-xm-eHA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Fb2-s4-mqq"/>
-                            <constraint firstItem="En4-xm-eHA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GhR-xe-LgK"/>
+                            <constraint firstAttribute="trailing" secondItem="lj3-C3-t6K" secondAttribute="trailing" id="AQf-CL-YCW"/>
                             <constraint firstItem="nPT-vD-FJS" firstAttribute="leading" secondItem="3K2-KO-ODA" secondAttribute="trailing" id="JD9-Nq-Syz"/>
+                            <constraint firstItem="lj3-C3-t6K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Kxw-ON-WhB"/>
                             <constraint firstItem="nPT-vD-FJS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NmW-YY-ySd"/>
-                            <constraint firstItem="KIE-zg-quM" firstAttribute="top" secondItem="En4-xm-eHA" secondAttribute="bottom" id="Rlh-Vc-JOs"/>
+                            <constraint firstItem="Gbz-s1-Wln" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RFH-R4-K70"/>
+                            <constraint firstItem="KIE-zg-quM" firstAttribute="top" secondItem="Gbz-s1-Wln" secondAttribute="bottom" id="VEO-fn-AP3"/>
                             <constraint firstItem="uUD-Kc-pCf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WCw-VW-jLk"/>
+                            <constraint firstItem="3K2-KO-ODA" firstAttribute="top" secondItem="KIE-zg-quM" secondAttribute="bottom" id="Wt6-kT-aJN"/>
+                            <constraint firstItem="Gbz-s1-Wln" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XOS-Vb-ZZc"/>
                             <constraint firstItem="KIE-zg-quM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XaY-DM-mN5"/>
                             <constraint firstItem="nPT-vD-FJS" firstAttribute="top" secondItem="KIE-zg-quM" secondAttribute="bottom" id="Zla-ee-C3N"/>
                             <constraint firstItem="uUD-Kc-pCf" firstAttribute="top" secondItem="3K2-KO-ODA" secondAttribute="bottom" id="co8-bg-QX7"/>
                             <constraint firstItem="3K2-KO-ODA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nAT-AW-KSP"/>
-                            <constraint firstItem="En4-xm-eHA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oYo-Jv-Uk3"/>
                             <constraint firstItem="uUD-Kc-pCf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qJr-aj-Pcv"/>
+                            <constraint firstItem="lj3-C3-t6K" firstAttribute="bottom" secondItem="Gbz-s1-Wln" secondAttribute="top" id="rMp-mG-3xd"/>
                             <constraint firstItem="KIE-zg-quM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sdV-cO-GJh"/>
+                            <constraint firstItem="lj3-C3-t6K" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vZR-aG-Ux8"/>
                             <constraint firstItem="uUD-Kc-pCf" firstAttribute="top" secondItem="nPT-vD-FJS" secondAttribute="bottom" id="wh9-2b-25G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -111,6 +134,7 @@
                         <outlet property="artworkFound" destination="3K2-KO-ODA" id="eOA-9z-cLE"/>
                         <outlet property="imageTaken" destination="KIE-zg-quM" id="OwG-nR-Vuc"/>
                         <outlet property="messageDisplay" destination="nPT-vD-FJS" id="rNU-Xz-Gnj"/>
+                        <outlet property="toolBar" destination="uUD-Kc-pCf" id="EIs-MF-vYF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -17,6 +17,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var messageDisplay: UITextView!
     
+    @IBOutlet weak var toolBar: UIToolbar!
+    
     var resultsContainer: ResultContainer!
     
     var googleVisionClient : GoogleVisionClient = GoogleVisionClient()
@@ -82,18 +84,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    func isPlaying() -> Bool {
-        return playerQueue.rate > 0
-    }
-    
-    func play() {
-        playerQueue.play()
-    }
-    
-    func pause() {
-        playerQueue.pause()
-    }
-    
     @IBAction func forward(_ sender: Any) {
         if resultsContainer != nil {
             initialize(track: resultsContainer.next()!)
@@ -110,6 +100,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         initializeArtwork(track: track)
         initializeMessage(track: track)
         initializePlayer(track: track)
+    }
+    
+    @IBAction func playPause(_ sender: Any) {
+        if isPlaying() {
+            pause()
+        } else {
+            play()
+        }
     }
     
     func initializeArtwork(track: ITunesClientResponseResult) {
@@ -133,6 +131,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if isPlaying {
             play()
         }
+    }
+    
+    func isPlaying() -> Bool {
+        return playerQueue.rate > 0
+    }
+    
+    func play() {
+        if playerQueue.items().count > 0 {
+            playerQueue.play()
+            togglePlayButton(mode: UIBarButtonSystemItem.pause)
+        }
+    }
+    
+    func pause() {
+        playerQueue.pause()
+        togglePlayButton(mode: UIBarButtonSystemItem.play)
+    }
+    
+    func togglePlayButton(mode: UIBarButtonSystemItem) {
+        var items = self.toolBar.items
+        items![3] = UIBarButtonItem(barButtonSystemItem: mode, target: self, action: #selector(self.playPause(_:)))
+        self.toolBar.setItems(items, animated: true)
     }
     
 }
