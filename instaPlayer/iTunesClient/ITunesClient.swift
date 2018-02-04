@@ -47,8 +47,6 @@ class ITunesClient {
             } else {
                 completionHandler(apiResponse, apiError)
             }
-            
-            
         }
         
         task.resume()
