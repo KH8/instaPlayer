@@ -29,20 +29,39 @@ class ITunesClient {
                 do {
                     let decoder = JSONDecoder()
                     apiResponse = try decoder.decode(ITunesClientResponse.self, from: data!)
-                    if apiResponse!.results.count <= 0 {
-                        apiError = ITunesClientResponseError(
-                            message: "No results for: " + criteria)
-                    }
                 } catch {
                     apiError = ITunesClientResponseError(
                         message: "Could not retrieve response for: " + criteria)
                 }
             }
             
-            completionHandler(apiResponse, apiError)
+            if (apiError == nil && apiResponse!.results.count == 0) {
+                if criteria.contains(" ") {
+                    let reducedCriteria = self.reduceCriteria(criteria: criteria)
+                    self.search(criteria: reducedCriteria, completionHandler: completionHandler)
+                } else {
+                    apiError = ITunesClientResponseError(
+                        message: "Could not find any results")
+                    completionHandler(apiResponse, apiError)
+                }
+            } else {
+                completionHandler(apiResponse, apiError)
+            }
+            
+            
         }
         
         task.resume()
+    }
+    
+    func reduceCriteria(criteria: String) -> String {
+        let reducedCriteria = criteria
+            .components(separatedBy: " ")
+            .dropLast()
+            .joined(separator: " ")
+        print("- reduced criteria: " + criteria)
+        print("- to: " + reducedCriteria)
+        return reducedCriteria
     }
 
 }

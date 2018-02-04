@@ -12,19 +12,11 @@ class CriteriaFilter {
     
     func filter(criteria: String) -> String {
         let result = criteria
-            .replacingOccurrences(of: "cd", with: "")
-            .replacingOccurrences(of: "album", with: "")
-            .replacingOccurrences(of: "record", with: "")
-            .replacingOccurrences(of: "video", with: "")
-            .replacingOccurrences(of: "vhs", with: "")
-            .replacingOccurrences(of: "audio", with: "")
-            .replacingOccurrences(of: "vinyl", with: "")
-            .replacingOccurrences(of: "poster", with: "")
             .components(separatedBy: CharacterSet.punctuationCharacters)
-            .prefix(5)
+            .prefix(8)
             .joined()
-        print("Given criteria: " + criteria)
-        print("Filtered criteria: " + result)
+        print("- filtered criteria: " + criteria)
+        print("- to: " + result)
         return result
     }
     
