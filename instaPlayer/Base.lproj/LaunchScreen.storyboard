@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-UltraLight</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -18,30 +23,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDark" translatesAutoresizingMaskIntoConstraints="NO" id="uf5-gt-sYa">
-                                <rect key="frame" x="67" y="213" width="240" height="240"/>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="powered by" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMc-iF-RxT">
+                                <rect key="frame" x="125" y="617" width="75" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="Etr-iW-BdP"/>
-                                    <constraint firstAttribute="width" constant="240" id="iz2-n5-g9N"/>
+                                    <constraint firstAttribute="height" constant="30" id="6b0-qQ-MwC"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="6kj-1f-cUO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.26274509800000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="itunes" translatesAutoresizingMaskIntoConstraints="NO" id="90K-qc-hKA">
+                                <rect key="frame" x="224" y="617" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="ANv-hN-sYL"/>
+                                    <constraint firstAttribute="height" constant="30" id="pEM-Oi-MLv"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="instaPlayer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfH-fP-rHQ">
-                                <rect key="frame" x="0.0" y="626" width="375" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="5C3-E7-Qn3">
+                                <rect key="frame" x="194" y="617" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Ohu-HT-EyZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="97Q-m9-vOK"/>
+                                    <constraint firstAttribute="width" constant="30" id="JVB-I6-LCb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDark" translatesAutoresizingMaskIntoConstraints="NO" id="uf5-gt-sYa">
+                                <rect key="frame" x="127" y="248" width="120" height="120"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Etr-iW-BdP"/>
+                                    <constraint firstAttribute="width" constant="120" id="iz2-n5-g9N"/>
+                                </constraints>
+                            </imageView>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="instaPlayer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfH-fP-rHQ">
+                                <rect key="frame" x="121" y="334" width="133.5" height="39"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="4VX-g5-Jyh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" red="0.2627450980392157" green="0.36078431372549019" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.84313725490196079" green="0.062745098039215685" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="HfH-fP-rHQ" secondAttribute="bottom" constant="20" symbolic="YES" id="Bcq-gW-Ztc"/>
-                            <constraint firstItem="HfH-fP-rHQ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Ve7-l4-b39"/>
-                            <constraint firstItem="uf5-gt-sYa" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="YYD-a6-SO4"/>
-                            <constraint firstItem="HfH-fP-rHQ" firstAttribute="centerX" secondItem="uf5-gt-sYa" secondAttribute="centerX" id="a1C-fY-nX9"/>
-                            <constraint firstItem="uf5-gt-sYa" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="eBE-fZ-VrS"/>
+                            <constraint firstItem="HfH-fP-rHQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="20" id="9qP-Mb-2jc"/>
+                            <constraint firstItem="uf5-gt-sYa" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-25" id="DYh-C9-i3k"/>
+                            <constraint firstItem="HfH-fP-rHQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Mju-2J-1ur"/>
+                            <constraint firstItem="YMc-iF-RxT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-25" id="XnC-w7-Rxt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YMc-iF-RxT" secondAttribute="bottom" constant="20" id="Y7q-PP-tay"/>
+                            <constraint firstItem="5C3-E7-Qn3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="22" id="a8G-8P-ZHW"/>
+                            <constraint firstItem="uf5-gt-sYa" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hqS-El-d5S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5C3-E7-Qn3" secondAttribute="bottom" constant="20" id="sor-68-5SE"/>
+                            <constraint firstItem="90K-qc-hKA" firstAttribute="leading" secondItem="5C3-E7-Qn3" secondAttribute="trailing" id="t22-H6-MZk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="90K-qc-hKA" secondAttribute="bottom" constant="20" id="ym8-aL-Sf0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -52,6 +106,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iconDark" width="1200" height="1200"/>
+        <image name="google" width="1200" height="1200"/>
+        <image name="iconDark" width="2400" height="2400"/>
+        <image name="itunes" width="380" height="380"/>
     </resources>
 </document>
