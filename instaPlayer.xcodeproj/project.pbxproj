@@ -13,6 +13,7 @@
 		A466031E202619160066957E /* ImageCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466031D202619160066957E /* ImageCrop.swift */; };
 		A466032520261A570066957E /* CriteriaFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466032420261A570066957E /* CriteriaFilter.swift */; };
 		A466032720261AD60066957E /* ResultContainter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466032620261AD60066957E /* ResultContainter.swift */; };
+		A471B6D6202E399200467D25 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471B6D5202E399200467D25 /* ListViewCell.swift */; };
 		A48368BD202117B900369A51 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48368BC202117B900369A51 /* AppConstants.swift */; };
 		A4A605EA2017C3E3000A3503 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A605E92017C3E3000A3503 /* AppDelegate.swift */; };
 		A4A605EC2017C3E3000A3503 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A605EB2017C3E3000A3503 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 		A4A605F72017C3E3000A3503 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4A605F52017C3E3000A3503 /* LaunchScreen.storyboard */; };
 		A4A606022017C3E3000A3503 /* instaPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A606012017C3E3000A3503 /* instaPlayerTests.swift */; };
 		A4A6060D2017C3E3000A3503 /* instaPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A6060C2017C3E3000A3503 /* instaPlayerUITests.swift */; };
+		A4C2E5EF202E35AF00672CD7 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C2E5EE202E35AF00672CD7 /* ListViewController.swift */; };
 		A4DB5BAD202520DC00BCA0D3 /* GoogleVisionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB5BAC202520DC00BCA0D3 /* GoogleVisionClient.swift */; };
 		A4DB5BAF2025212C00BCA0D3 /* GoogleVisionClientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB5BAE2025212C00BCA0D3 /* GoogleVisionClientResponse.swift */; };
 		A4DB5BB1202521B100BCA0D3 /* GoogleVisionClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB5BB0202521B100BCA0D3 /* GoogleVisionClientConstants.swift */; };
@@ -53,6 +55,7 @@
 		A466031D202619160066957E /* ImageCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCrop.swift; sourceTree = "<group>"; };
 		A466032420261A570066957E /* CriteriaFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CriteriaFilter.swift; path = instaPlayer/core/CriteriaFilter.swift; sourceTree = SOURCE_ROOT; };
 		A466032620261AD60066957E /* ResultContainter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultContainter.swift; path = instaPlayer/core/ResultContainter.swift; sourceTree = SOURCE_ROOT; };
+		A471B6D5202E399200467D25 /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		A48368BC202117B900369A51 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		A4A605E62017C3E3000A3503 /* instaPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instaPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A605E92017C3E3000A3503 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		A4A606082017C3E3000A3503 /* instaPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instaPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A6060C2017C3E3000A3503 /* instaPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instaPlayerUITests.swift; sourceTree = "<group>"; };
 		A4A6060E2017C3E3000A3503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4C2E5EE202E35AF00672CD7 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		A4DB5BAC202520DC00BCA0D3 /* GoogleVisionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionClient.swift; sourceTree = "<group>"; };
 		A4DB5BAE2025212C00BCA0D3 /* GoogleVisionClientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionClientResponse.swift; sourceTree = "<group>"; };
 		A4DB5BB0202521B100BCA0D3 /* GoogleVisionClientConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionClientConstants.swift; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 				A4A605F82017C3E3000A3503 /* Info.plist */,
 				A4A605F02017C3E3000A3503 /* instaPlayer.xcdatamodeld */,
 				A48368BC202117B900369A51 /* AppConstants.swift */,
+				A4C2E5EE202E35AF00672CD7 /* ListViewController.swift */,
+				A471B6D5202E399200467D25 /* ListViewCell.swift */,
 			);
 			path = instaPlayer;
 			sourceTree = "<group>";
@@ -343,10 +349,12 @@
 				A4A605EC2017C3E3000A3503 /* ViewController.swift in Sources */,
 				A466031B2026113A0066957E /* ITunesClientConstants.swift in Sources */,
 				A4DB5BAF2025212C00BCA0D3 /* GoogleVisionClientResponse.swift in Sources */,
+				A471B6D6202E399200467D25 /* ListViewCell.swift in Sources */,
 				A4DB5BAD202520DC00BCA0D3 /* GoogleVisionClient.swift in Sources */,
 				A4A605EA2017C3E3000A3503 /* AppDelegate.swift in Sources */,
 				A46603192026111F0066957E /* ITunesClientResponse.swift in Sources */,
 				A4DB5BB1202521B100BCA0D3 /* GoogleVisionClientConstants.swift in Sources */,
+				A4C2E5EF202E35AF00672CD7 /* ListViewController.swift in Sources */,
 				A466032520261A570066957E /* CriteriaFilter.swift in Sources */,
 				A4DB5BB32025220300BCA0D3 /* GoogleVisionClientSecurity.swift in Sources */,
 				A466031E202619160066957E /* ImageCrop.swift in Sources */,
