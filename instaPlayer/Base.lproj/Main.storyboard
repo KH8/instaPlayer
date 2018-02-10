@@ -68,9 +68,8 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Rxe-DT-LLm"/>
                                     <barButtonItem systemItem="search" id="iAl-j5-zCo">
                                         <connections>
-                                            <segue destination="4D0-y4-i6e" kind="popoverPresentation" popoverAnchorBarButtonItem="iAl-j5-zCo" id="1f0-nJ-D61">
-                                                <popoverArrowDirection key="popoverArrowDirection" right="YES"/>
-                                            </segue>
+                                            <action selector="openOffersList:" destination="BYZ-38-t0r" id="0xe-mA-f49"/>
+                                            <segue destination="4D0-y4-i6e" kind="show" id="mTV-gy-lso"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -104,7 +103,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wbn-gJ-Ws4"/>
                                 </items>
                             </toolbar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Take picture of the record you want to play" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-vD-FJS" userLabel="Messages">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-vD-FJS" userLabel="Messages">
                                 <rect key="frame" x="60" y="563" width="315" height="60"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -113,8 +112,15 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ubL-dF-YvD"/>
                                 </constraints>
-                                <color key="textColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Take picture of the record you want to play">
+                                        <attributes>
+                                            <color key="NSColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -157,7 +163,7 @@
         <!--List View Controller-->
         <scene sceneID="Y5x-Y7-EYz">
             <objects>
-                <viewController id="4D0-y4-i6e" customClass="ListViewController" customModule="instaPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListViewController" id="4D0-y4-i6e" customClass="ListViewController" customModule="instaPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6R1-ue-WKA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,7 +199,7 @@
                                 <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AxM-gA-sxR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="549"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="allegroSearch" id="zDJ-d7-MOm" customClass="ListViewCell" customModule="instaPlayer" customModuleProvider="target">
@@ -203,40 +209,34 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ecf-zq-tbb">
-                                                    <rect key="frame" x="15" y="12" width="256" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Ecf-zq-tbb" secondAttribute="height" multiplier="256:21" id="6gc-mp-qiU"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WT-9X-agu">
-                                                    <rect key="frame" x="279" y="12" width="81" height="21"/>
+                                                    <rect key="frame" x="247" y="0.0" width="113" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="3WT-9X-agu" secondAttribute="height" multiplier="27:7" id="vyq-6a-n1o"/>
+                                                        <constraint firstAttribute="width" secondItem="3WT-9X-agu" secondAttribute="height" multiplier="27:7" constant="32" id="vyq-6a-n1o"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" red="0.84313725490000002" green="0.062745098040000002" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hB-iK-eUe">
+                                                    <rect key="frame" x="15" y="18" width="345" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                                    <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ecf-zq-tbb" firstAttribute="bottom" secondItem="z8Z-wk-uUE" secondAttribute="bottomMargin" id="9p3-Hx-iDP"/>
                                                 <constraint firstItem="3WT-9X-agu" firstAttribute="trailing" secondItem="z8Z-wk-uUE" secondAttribute="trailingMargin" id="A3i-7I-ADJ"/>
                                                 <constraint firstItem="3WT-9X-agu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="z8Z-wk-uUE" secondAttribute="leadingMargin" id="fOQ-1j-0YQ"/>
-                                                <constraint firstItem="3WT-9X-agu" firstAttribute="top" secondItem="z8Z-wk-uUE" secondAttribute="topMargin" constant="1" id="h5P-gq-vK9"/>
-                                                <constraint firstItem="Ecf-zq-tbb" firstAttribute="leading" secondItem="z8Z-wk-uUE" secondAttribute="leadingMargin" id="oBZ-lT-HYw"/>
-                                                <constraint firstItem="3WT-9X-agu" firstAttribute="bottom" secondItem="z8Z-wk-uUE" secondAttribute="bottomMargin" id="rFg-Rm-pFR"/>
-                                                <constraint firstItem="Ecf-zq-tbb" firstAttribute="top" secondItem="z8Z-wk-uUE" secondAttribute="topMargin" constant="1" id="wdh-oL-Agp"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ecf-zq-tbb" secondAttribute="trailingMargin" id="wjs-Ow-iwh"/>
+                                                <constraint firstItem="3WT-9X-agu" firstAttribute="top" secondItem="z8Z-wk-uUE" secondAttribute="topMargin" constant="-11" id="h5P-gq-vK9"/>
+                                                <constraint firstItem="3WT-9X-agu" firstAttribute="bottom" secondItem="z8Z-wk-uUE" secondAttribute="bottomMargin" constant="-12" id="rFg-Rm-pFR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="price" destination="3WT-9X-agu" id="oh3-Nb-poJ"/>
-                                            <outlet property="product" destination="Ecf-zq-tbb" id="DaI-Xm-9gd"/>
+                                            <outlet property="product" destination="4hB-iK-eUe" id="Xc6-fw-LBv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -245,6 +245,26 @@
                                     <outlet property="delegate" destination="4D0-y4-i6e" id="J5V-TC-bld"/>
                                 </connections>
                             </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7m0-Ho-jQ6" userLabel="Messages">
+                                <rect key="frame" x="0.0" y="613" width="375" height="54"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7m0-Ho-jQ6" secondAttribute="height" multiplier="125:18" id="bQo-XQ-ViL"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Take picture of the record you want to play">
+                                        <attributes>
+                                            <color key="NSColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -259,10 +279,17 @@
                             <constraint firstItem="h5D-uM-792" firstAttribute="leading" secondItem="6R1-ue-WKA" secondAttribute="leading" id="QYf-ip-W3w"/>
                             <constraint firstItem="h5D-uM-792" firstAttribute="width" secondItem="h5D-uM-792" secondAttribute="height" multiplier="125:7" id="Rus-UA-AOA"/>
                             <constraint firstItem="vaX-eG-ysl" firstAttribute="width" secondItem="vaX-eG-ysl" secondAttribute="height" multiplier="375:44" id="bPq-QG-2Ab"/>
-                            <constraint firstItem="AxM-gA-sxR" firstAttribute="bottom" secondItem="YVx-jD-2CG" secondAttribute="bottom" id="hla-XL-PyL"/>
+                            <constraint firstItem="7m0-Ho-jQ6" firstAttribute="leading" secondItem="YVx-jD-2CG" secondAttribute="leading" id="gPH-BC-iSM"/>
+                            <constraint firstItem="7m0-Ho-jQ6" firstAttribute="trailing" secondItem="YVx-jD-2CG" secondAttribute="trailing" id="oPe-Rh-qHb"/>
+                            <constraint firstItem="7m0-Ho-jQ6" firstAttribute="bottom" secondItem="YVx-jD-2CG" secondAttribute="bottom" id="qMg-BP-D6a"/>
+                            <constraint firstItem="7m0-Ho-jQ6" firstAttribute="top" secondItem="AxM-gA-sxR" secondAttribute="bottom" id="qsk-R2-ZqU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YVx-jD-2CG"/>
                     </view>
+                    <connections>
+                        <outlet property="messages" destination="7m0-Ho-jQ6" id="PEy-P1-9dW"/>
+                        <outlet property="tableView" destination="AxM-gA-sxR" id="h7r-NT-Nn3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yJ-1h-hJF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

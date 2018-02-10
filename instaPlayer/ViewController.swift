@@ -29,6 +29,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set(nil, forKey: "artistName")
+        UserDefaults.standard.set(nil, forKey: "collectionName")
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,6 +102,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         initializeArtwork(track: track)
         initializeMessage(track: track)
         initializePlayer(track: track)
+        initializeUserDefaults(track: track)
     }
     
     @IBAction func playPause(_ sender: Any) {
@@ -131,6 +134,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if isPlaying {
             play()
         }
+    }
+    
+    func initializeUserDefaults(track: ITunesClientResponseResult) {
+        UserDefaults.standard.set(track.artistName, forKey: "artistName")
+        UserDefaults.standard.set(track.collectionName, forKey: "collectionName")
     }
     
     func isPlaying() -> Bool {
