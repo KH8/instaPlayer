@@ -13,8 +13,11 @@
 		A466031E202619160066957E /* ImageCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466031D202619160066957E /* ImageCrop.swift */; };
 		A466032520261A570066957E /* CriteriaFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466032420261A570066957E /* CriteriaFilter.swift */; };
 		A466032720261AD60066957E /* ResultContainter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466032620261AD60066957E /* ResultContainter.swift */; };
+		A467D037202E64AF00D58102 /* AllegroClientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A467D036202E64AF00D58102 /* AllegroClientResponse.swift */; };
 		A471B6D6202E399200467D25 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471B6D5202E399200467D25 /* ListViewCell.swift */; };
 		A48368BD202117B900369A51 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48368BC202117B900369A51 /* AppConstants.swift */; };
+		A49076F5202E3D5100829751 /* AllegroClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49076F4202E3D5100829751 /* AllegroClient.swift */; };
+		A49076F7202E3DAF00829751 /* AllegroClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49076F6202E3DAF00829751 /* AllegroClientConstants.swift */; };
 		A4A605EA2017C3E3000A3503 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A605E92017C3E3000A3503 /* AppDelegate.swift */; };
 		A4A605EC2017C3E3000A3503 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A605EB2017C3E3000A3503 /* ViewController.swift */; };
 		A4A605EF2017C3E3000A3503 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4A605ED2017C3E3000A3503 /* Main.storyboard */; };
@@ -55,8 +58,13 @@
 		A466031D202619160066957E /* ImageCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCrop.swift; sourceTree = "<group>"; };
 		A466032420261A570066957E /* CriteriaFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CriteriaFilter.swift; path = instaPlayer/core/CriteriaFilter.swift; sourceTree = SOURCE_ROOT; };
 		A466032620261AD60066957E /* ResultContainter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultContainter.swift; path = instaPlayer/core/ResultContainter.swift; sourceTree = SOURCE_ROOT; };
+		A467D036202E64AF00D58102 /* AllegroClientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllegroClientResponse.swift; sourceTree = "<group>"; };
 		A471B6D5202E399200467D25 /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		A48368BC202117B900369A51 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		A49076F4202E3D5100829751 /* AllegroClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllegroClient.swift; sourceTree = "<group>"; };
+		A49076F6202E3DAF00829751 /* AllegroClientConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllegroClientConstants.swift; sourceTree = "<group>"; };
+		A49076F8202E429B00829751 /* SwiftSoup-1.6.1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "SwiftSoup-1.6.1"; path = "../../../../Downloads/SwiftSoup-1.6.1"; sourceTree = "<group>"; };
+		A49076FA202E433100829751 /* CarthageKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarthageKit.framework; path = ../../../../Downloads/CarthageKit.framework; sourceTree = "<group>"; };
 		A4A605E62017C3E3000A3503 /* instaPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instaPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A605E92017C3E3000A3503 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4A605EB2017C3E3000A3503 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +140,16 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		A49076F3202E3D3200829751 /* allegroClient */ = {
+			isa = PBXGroup;
+			children = (
+				A49076F4202E3D5100829751 /* AllegroClient.swift */,
+				A49076F6202E3DAF00829751 /* AllegroClientConstants.swift */,
+				A467D036202E64AF00D58102 /* AllegroClientResponse.swift */,
+			);
+			path = allegroClient;
+			sourceTree = "<group>";
+		};
 		A4A605DD2017C3E2000A3503 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +174,7 @@
 		A4A605E82017C3E3000A3503 /* instaPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				A49076F3202E3D3200829751 /* allegroClient */,
 				A4529FE720266E0F006A9A03 /* core */,
 				A466031C202618EE0066957E /* utils */,
 				A466031520260F730066957E /* iTunesClient */,
@@ -206,6 +225,8 @@
 		A4F43AE12023716E00A514B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A49076FA202E433100829751 /* CarthageKit.framework */,
+				A49076F8202E429B00829751 /* SwiftSoup-1.6.1 */,
 				A4F43AE22023716F00A514B7 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
@@ -346,9 +367,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4A605F22017C3E3000A3503 /* instaPlayer.xcdatamodeld in Sources */,
+				A49076F7202E3DAF00829751 /* AllegroClientConstants.swift in Sources */,
 				A4A605EC2017C3E3000A3503 /* ViewController.swift in Sources */,
 				A466031B2026113A0066957E /* ITunesClientConstants.swift in Sources */,
 				A4DB5BAF2025212C00BCA0D3 /* GoogleVisionClientResponse.swift in Sources */,
+				A49076F5202E3D5100829751 /* AllegroClient.swift in Sources */,
 				A471B6D6202E399200467D25 /* ListViewCell.swift in Sources */,
 				A4DB5BAD202520DC00BCA0D3 /* GoogleVisionClient.swift in Sources */,
 				A4A605EA2017C3E3000A3503 /* AppDelegate.swift in Sources */,
@@ -361,6 +384,7 @@
 				A466032720261AD60066957E /* ResultContainter.swift in Sources */,
 				A466031720260F8A0066957E /* ITunesClient.swift in Sources */,
 				A48368BD202117B900369A51 /* AppConstants.swift in Sources */,
+				A467D037202E64AF00D58102 /* AllegroClientResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
