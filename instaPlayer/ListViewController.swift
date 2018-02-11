@@ -15,11 +15,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var collectionName: String?
     
-    var items: [AllegroClientResponseItem] = []
+    var vinylOffers: [AllegroClientResponseItem] = []
+    
+    var cdOffers: [AllegroClientResponseItem] = []
+    
+    var messages = ["", ""]
     
     var allegroClient : AllegroClient = AllegroClient()
-    
-    @IBOutlet weak var messages: UITextView!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,10 +29,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         initializeUserDefaults()
         if artistName != nil && collectionName != nil {
-            messages.text = "Searching for " + artistName! + " - " + collectionName!
+            messages[0] = "Searching..."
+            messages[1] = "Searching..."
             initializeOffersData()
         } else {
-            messages.text = "No data to search for"
+            messages[0] = "No data to search for"
+            messages[1] = "No data to search for"
         }
     }
     
@@ -44,21 +48,32 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func initializeOffersData() {
-        allegroClient.search(artist: artistName!, album: collectionName!, completionHandler: handleAllegroResponse)
+        allegroClient.searchForVinylOffers(artist: artistName!, album: collectionName!, completionHandler: handleVinylOffersResponse)
+        allegroClient.searchForCdOffers(artist: artistName!, album: collectionName!, completionHandler: handleCdOffersResponse)
     }
     
-    func handleAllegroResponse(response: AllegroClientResponse?, error: AllegroClientResponseError?) {
+    func handleVinylOffersResponse(response: AllegroClientResponse?, error: AllegroClientResponseError?) {
         DispatchQueue.main.async{
-            if error != nil {
-                self.messages.text = "An error occured while retriving data"
-                return
-            }
-            if !(response?.itemsGroups.isEmpty)! {
-                self.items = (response?.itemsGroups[0].items)!
-                self.messages.text = "Data found"
+            if error == nil {
+                if !(response?.itemsGroups.isEmpty)! {
+                    self.vinylOffers = (response?.itemsGroups[0].items)!
+                } else {
+                    self.messages[0] = "Could not find any offers"
+                }
                 self.tableView.reloadData()
-            } else {
-                self.messages.text = "Could not find any data for given record"
+            }
+        }
+    }
+    
+    func handleCdOffersResponse(response: AllegroClientResponse?, error: AllegroClientResponseError?) {
+        DispatchQueue.main.async{
+            if error == nil {
+                if !(response?.itemsGroups.isEmpty)! {
+                    self.cdOffers = (response?.itemsGroups[0].items)!
+                } else {
+                    self.messages[1] = "Could not find any offers"
+                }
+                self.tableView.reloadData()
             }
         }
     }
@@ -68,18 +83,49 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ?
+            "Vinyls" : "CD's"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return section == 0 ?
+            offerCount(offers: vinylOffers) : offerCount(offers: cdOffers)
+    }
+    
+    func offerCount(offers: [AllegroClientResponseItem]) -> Int {
+        return offers.isEmpty ?
+            1 : offers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return indexPath.section == 0 ?
+            offerCell(offers: vinylOffers, alternativeText: messages[0], tableView: tableView, indexPath: indexPath) :
+            offerCell(offers: cdOffers, alternativeText: messages[1], tableView: tableView, indexPath: indexPath)
+    }
+    
+    func offerCell(offers: [AllegroClientResponseItem], alternativeText: String, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "allegroSearch", for: indexPath) as? ListViewCell
-        let row = items[indexPath.row]
-        cell?.product.text = row.title.text.components(separatedBy: CharacterSet.punctuationCharacters).joined()
-        cell?.price.text = row.price.normal.amount + " " + row.price.normal.currency
+        
+        if offers.isEmpty {
+            cell?.product.text = alternativeText
+            cell?.price.text = ""
+            return cell!
+        }
+        
+        let row = offers[indexPath.row]
+        cell?.product.text = row.title.text.components(separatedBy:
+                CharacterSet.alphanumerics.union(CharacterSet.whitespaces).inverted).joined()
+        
+        var price = row.price.normal.amount + " " + row.price.normal.currency
+        if row.label.text == nil {
+            price = price + "*"
+        }
+        
+        cell?.price.text = price
         return cell!
     }
 

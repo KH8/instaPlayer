@@ -57,7 +57,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func checkPicture() {
-        self.messageDisplay.text = "searching..."
+        self.messageDisplay.text = "Searching..."
         let imageData:Data =  UIImageJPEGRepresentation(imageTaken.image!, CGFloat(AppConstants.imageCompression))!
         self.googleVisionClient.search(data: imageData, completionHandler: self.handleGoogleResponse)
     }

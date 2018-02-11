@@ -36,7 +36,7 @@ struct AllegroClientResponseItemPriceNormal: Codable {
 }
 
 struct AllegroClientResponseItemLabel: Codable {
-    var text: String
+    var text: String?
 }
 
 struct AllegroClientResponseError: Codable {

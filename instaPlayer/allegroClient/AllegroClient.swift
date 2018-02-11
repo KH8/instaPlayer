@@ -11,12 +11,24 @@ import Foundation
 
 class AllegroClient {
 
-    func search(artist: String, album: String, completionHandler: @escaping (AllegroClientResponse?, AllegroClientResponseError?) -> Swift.Void) {
+    func searchForVinylOffers(artist: String, album: String, completionHandler: @escaping (AllegroClientResponse?, AllegroClientResponseError?) -> Swift.Void) {
+        let url = prepareSearchURL(baseURL: AllegroClientConstants.allegroApiVinylOffersURL, artist: artist, album: album)
+        search(url: url, completionHandler: completionHandler)
+    }
+    
+    func searchForCdOffers(artist: String, album: String, completionHandler: @escaping (AllegroClientResponse?, AllegroClientResponseError?) -> Swift.Void) {
+        let url = prepareSearchURL(baseURL: AllegroClientConstants.allegroApiCdOffersURL, artist: artist, album: album)
+        search(url: url, completionHandler: completionHandler)
+    }
+    
+    func prepareSearchURL(baseURL: String, artist: String, album: String) -> URL {
         let criteria = artist + " " + album
         let encodedCriteria = criteria.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let url = URL(string: AllegroClientConstants.allegroApiURL + encodedCriteria!)
-        
-        var request = URLRequest(url: url!)
+        return URL(string: baseURL + encodedCriteria!)!
+    }
+    
+    func search(url: URL, completionHandler: @escaping (AllegroClientResponse?, AllegroClientResponseError?) -> Swift.Void) {
+        var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/html", forHTTPHeaderField: "Accept")
         
@@ -34,7 +46,7 @@ class AllegroClient {
                     apiResponse = try decoder.decode(AllegroClientResponse.self, from: offersJson.data(using: .utf8)!)
                 } catch {
                     apiError = AllegroClientResponseError(
-                        message: "Could not retrieve response for: " + criteria)
+                        message: "Could not retrieve API response")
                 }
             }
             
