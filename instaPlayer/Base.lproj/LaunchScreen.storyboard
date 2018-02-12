@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -71,7 +72,7 @@
                                 </constraints>
                             </imageView>
                             <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="instaPlayer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfH-fP-rHQ">
-                                <rect key="frame" x="121" y="334" width="133.5" height="39"/>
+                                <rect key="frame" x="121" y="334" width="134" height="39"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
@@ -83,15 +84,31 @@
                                 <color key="textColor" red="0.2627450980392157" green="0.36078431372549019" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version 0.1.10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkD-Cw-1Qz">
+                                <rect key="frame" x="0.0" y="13" width="375" height="39"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="5cZ-sZ-806"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="10"/>
+                                <color key="textColor" red="0.26274509800000001" green="0.36078431370000003" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="FkD-Cw-1Qz" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-7" id="28I-nL-fJ1"/>
+                            <constraint firstItem="FkD-Cw-1Qz" firstAttribute="centerX" secondItem="uf5-gt-sYa" secondAttribute="centerX" id="314-7X-CPV"/>
                             <constraint firstItem="HfH-fP-rHQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="20" id="9qP-Mb-2jc"/>
                             <constraint firstItem="uf5-gt-sYa" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-25" id="DYh-C9-i3k"/>
                             <constraint firstItem="HfH-fP-rHQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Mju-2J-1ur"/>
                             <constraint firstItem="YMc-iF-RxT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-25" id="XnC-w7-Rxt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YMc-iF-RxT" secondAttribute="bottom" constant="20" id="Y7q-PP-tay"/>
                             <constraint firstItem="5C3-E7-Qn3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="22" id="a8G-8P-ZHW"/>
+                            <constraint firstItem="FkD-Cw-1Qz" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="cCp-gf-4iq"/>
                             <constraint firstItem="uf5-gt-sYa" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hqS-El-d5S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5C3-E7-Qn3" secondAttribute="bottom" constant="20" id="sor-68-5SE"/>
                             <constraint firstItem="90K-qc-hKA" firstAttribute="leading" secondItem="5C3-E7-Qn3" secondAttribute="trailing" id="t22-H6-MZk"/>

@@ -55,26 +55,26 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func handleVinylOffersResponse(response: AllegroClientResponse?, error: AllegroClientResponseError?) {
         DispatchQueue.main.async{
             if error == nil {
-                if !(response?.itemsGroups.isEmpty)! {
+                if !(response?.itemsGroups[0].items.isEmpty)! {
                     self.vinylOffers = (response?.itemsGroups[0].items)!
-                } else {
-                    self.messages[0] = "Could not find any offers"
+                    self.tableView.reloadData()
+                    return;
                 }
-                self.tableView.reloadData()
             }
+            self.messages[0] = "Could not find any offers"
         }
     }
     
     func handleCdOffersResponse(response: AllegroClientResponse?, error: AllegroClientResponseError?) {
         DispatchQueue.main.async{
             if error == nil {
-                if !(response?.itemsGroups.isEmpty)! {
+                if !(response?.itemsGroups[0].items.isEmpty)! {
                     self.cdOffers = (response?.itemsGroups[0].items)!
-                } else {
-                    self.messages[1] = "Could not find any offers"
+                    self.tableView.reloadData()
+                    return;
                 }
-                self.tableView.reloadData()
             }
+            self.messages[1] = "Could not find any offers"
         }
     }
     
